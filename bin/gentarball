@@ -39,4 +39,5 @@ if ! gzip <"${tarball}".tar >"${tarball}".tar.gz; then
 	exit 4
 fi
 rm "${tarball}".tar
+chtag -b "${tarball}".tar.gz
 exit 0

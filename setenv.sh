@@ -43,7 +43,7 @@ export PORT_TYPE="TARBALL"
 # Many packages will require basic tools like m4, make.      
 #
 export PORT_TARBALL_URL="https://github.com/ZOSOpenTools/zotsampleport/releases/download/zotsample-1.0/zotsample-1.0.tar.gz"
-export PORT_TARBALL_DEPS="curl gzip"
+export PORT_TARBALL_DEPS="curl gzip make"
 
 #
 # It can be convenient to include the environment variables for the 'other' format in 
@@ -54,4 +54,4 @@ export PORT_TARBALL_DEPS="curl gzip"
 #   - git: required to be able to clone the tarball and apply patche
 #
 export PORT_GIT_URL="git@github.com:ZOSOpenTools/zotsampleport.git"
-export PORT_GIT_DEPS="git"
+export PORT_GIT_DEPS="git make"
