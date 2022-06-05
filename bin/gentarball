@@ -1,0 +1,42 @@
+#!/bin/sh
+# 
+# Generate the tarball and then it will be checked in
+# (yes - binaries should not be checked in, but this is
+# a special case)
+#set -x
+pgm="$0"
+mydir=$( cd $(dirname "$pgm")/ || exit; echo $PWD)
+export mydir
+
+if [ $# -lt 2 ]; then
+  echo "" >&2
+	echo "Syntax: $pgm <tarball-directory> <tarball-name>" >&2
+  echo "  where <tarball-directory> is the fully qualified directory" >&2
+  echo "  and <tarball-name> is the name of the sub-directory to tar up" >&2
+	exit 4
+fi
+dir="$1"
+tarball="$2"
+
+if ! [ -d "${dir}" ]; then
+	echo "Directory: ${dir} does not exist" >&2
+	exit 4
+fi
+if ! [ -d "${dir}/${tarball}" ]; then
+	echo "Directory: ${tarball} does not exist as a sub-directory of ${dir}" >&2
+	exit 4
+fi
+
+cd "${dir}" || exit 99
+
+if ! tar -cf "${tarball}".tar -C "${dir}" "${tarball}"; then
+	echo "Unable to tar tarball ${tarball}" >&2
+  exit 4
+fi
+
+if ! gzip <"${tarball}".tar >"${tarball}".tar.gz; then
+	echo "Unable to gzip tarball ${tarball}" >&2
+	exit 4
+fi
+rm "${tarball}".tar
+exit 0
