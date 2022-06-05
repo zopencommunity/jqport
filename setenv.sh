@@ -42,7 +42,7 @@ export PORT_TYPE="TARBALL"
 #  - git: required by build.sh to be able to apply patches
 # Many packages will require basic tools like m4, make.      
 #
-export PORT_TARBALL_URL="https://github.com/ZOSOpenTools/zotsampleport/zotsample-1.1.tar.gz"
+export PORT_TARBALL_URL="https://github.com/ZOSOpenTools/zotsampleport/blob/main/tarballs/zotsample-1.0.tar.gz"
 export PORT_TARBALL_DEPS="curl gzip"
 
 #
