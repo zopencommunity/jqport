@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+#set -x
 prod=$(cat installdir)
 if ! [ -d "${prod}" ]; then
 	echo "Installation dir ${prod} from configure does not exist"
