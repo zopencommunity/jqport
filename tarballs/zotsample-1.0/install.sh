@@ -10,8 +10,12 @@ if ! [ -d "${prod}" ]; then
 		echo "Directory created"
 	fi
 fi
-if ! cp zotsample "${prod}" ; then
-	echo "Unable to install zotsample into ${prod}" >&2
+if ! mkdir -p "${prod}/bin" ; then
+	echo "Installation bin dir ${prod}/bin from configure does not exist and can not be created" >&2
+	exit 1
+fi
+if ! cp zotsample "${prod}/bin/zotsample" ; then
+	echo "Unable to install zotsample into ${prod}/bin" >&2
 	exit 1
 fi
 exit 0
