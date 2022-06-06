@@ -15,4 +15,4 @@ install:
 	./install.sh
 
 zotsample: main.o fn.o
-	$(LD) -o$@ $^ 
+	$(LD) $(LDFLAGS) -o$@ $^ 
