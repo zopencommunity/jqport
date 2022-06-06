@@ -9,4 +9,3 @@ install:
 	./install.sh
 
 zotsample: main.o fn.o
-	cxx -ozotsample main.o fn.o
