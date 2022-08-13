@@ -1,0 +1,29 @@
+diff --git a/configure b/configure
+index de9c48a..208d03c 100755
+--- a/configure
++++ b/configure
+@@ -19390,7 +19390,8 @@ $as_echo "#define IEEE_8087 1" >>confdefs.h
+ if test "${with_oniguruma+set}" = set; then :
+   withval=$with_oniguruma;
+ else
+-  with_oniguruma=yes
++  #z/OS: temporary
++  with_oniguruma=no
+ fi
+ 
+ 
+diff --git a/src/jv_alloc.c b/src/jv_alloc.c
+index fd7b257..82d1b3e 100644
+--- a/src/jv_alloc.c
++++ b/src/jv_alloc.c
+@@ -131,6 +131,10 @@ void* jv_mem_alloc_unguarded(size_t sz) {
+ }
+ 
+ void* jv_mem_calloc(size_t nemb, size_t sz) {
++#ifdef __MVS__ 
++  if (sz == 0) 
++    sz = 1;
++#endif
+   void* p = calloc(nemb, sz);
+   if (!p) {
+     memory_exhausted();
