@@ -1,5 +1,4 @@
 #!/bin/sh
-export ZOPEN_ROOT=$PWD
 export ZOPEN_TYPE="TARBALL"
 export ZOPEN_TARBALL_URL="https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
 export ZOPEN_TARBALL_DEPS="make" 
