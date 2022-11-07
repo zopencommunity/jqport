@@ -1,7 +1,7 @@
-#!/bin/sh
 export ZOPEN_TYPE="TARBALL"
 export ZOPEN_TARBALL_URL="https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
-export ZOPEN_TARBALL_DEPS="make" 
+export ZOPEN_TARBALL_DEPS="make curl gzip tar zoslib" 
+export ZOPEN_CHECK="skip"
 
 zopen_check_results()
 {
