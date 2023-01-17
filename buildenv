@@ -1,7 +1,6 @@
 export ZOPEN_TYPE="TARBALL"
 export ZOPEN_TARBALL_URL="https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
-export ZOPEN_TARBALL_DEPS="make curl gzip tar zoslib" 
-export ZOPEN_CHECK="skip"
+export ZOPEN_TARBALL_DEPS="make curl gzip tar zoslib coreutils" 
 
 zopen_check_results()
 {
@@ -11,6 +10,13 @@ dir="$1"
 pfx="$2"
 chk="$1/$2_check.log"
 
-grep 'All tests passed' "${chk}"
+failures=$(egrep '^# FAIL:|^# ERROR:|^# XFAIL' ${chk} | awk '{sum+=$3;} END{print sum;}')
+totalTests=$(egrep '^# ERROR:|^# PASS:|^# XFAIL:|^# FAIL:|^# XPASS:' ${chk} | awk '{sum+=$3;} END{print sum;}')
+
+cat <<ZZ
+actualFailures:$failures
+totalTests:$totalTests
+expectedFailures:3
+ZZ
 }
 
