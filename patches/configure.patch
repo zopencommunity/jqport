@@ -1,0 +1,25 @@
+diff --git a/configure b/configure
+index de9c48a..52db35d 100755
+--- a/configure
++++ b/configure
+@@ -6818,6 +6818,10 @@ aix[4-9]*)
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+ 
++openedition)
++  lt_cv_deplibs_check_method=pass_all
++  ;;
++
+ beos*)
+   lt_cv_deplibs_check_method=pass_all
+   ;;
+@@ -19390,7 +19394,8 @@ $as_echo "#define IEEE_8087 1" >>confdefs.h
+ if test "${with_oniguruma+set}" = set; then :
+   withval=$with_oniguruma;
+ else
+-  with_oniguruma=yes
++  #z/OS: temporary
++  with_oniguruma=no
+ fi
+ 
+ 
