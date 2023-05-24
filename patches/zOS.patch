@@ -1,17 +1,3 @@
-diff --git a/configure b/configure
-index de9c48a..208d03c 100755
---- a/configure
-+++ b/configure
-@@ -19390,7 +19390,8 @@ $as_echo "#define IEEE_8087 1" >>confdefs.h
- if test "${with_oniguruma+set}" = set; then :
-   withval=$with_oniguruma;
- else
--  with_oniguruma=yes
-+  #z/OS: temporary
-+  with_oniguruma=no
- fi
- 
- 
 diff --git a/src/jv_alloc.c b/src/jv_alloc.c
 index fd7b257..82d1b3e 100644
 --- a/src/jv_alloc.c
