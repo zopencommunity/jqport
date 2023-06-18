@@ -20,3 +20,7 @@ expectedFailures:3
 ZZ
 }
 
+zopen_get_version()
+{
+    ./scripts/version
+}
