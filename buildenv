@@ -2,6 +2,7 @@
 JQ_VERSION="1.6"
 
 export ZOPEN_BUILD_LINE="STABLE"
+export ZOPEN_CATEGORIES="utilities"
 export ZOPEN_STABLE_URL="https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-${JQ_VERSION}.tar.gz"
 export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma" 
 export ZOPEN_COMP=CLANG
