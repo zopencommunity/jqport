@@ -1,10 +1,9 @@
 # bump: jq-version /JQ_VERSION="(.*)"/ https://github.com/jqlang/jq.git|semver:*
-JQ_VERSION="1.6"
+JQ_VERSION="1.7.1"
 
 export ZOPEN_BUILD_LINE="STABLE"
-export ZOPEN_CATEGORIES="utilities"
 export ZOPEN_STABLE_URL="https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-${JQ_VERSION}.tar.gz"
-export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma" 
+export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils" 
 export ZOPEN_COMP=CLANG
 
 zopen_check_results()
@@ -28,4 +27,10 @@ ZZ
 zopen_get_version()
 {
     ./scripts/version
+}
+
+zopen_init()
+{
+	unset TZ
+	SHELL=bash
 }

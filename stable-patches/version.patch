@@ -1,0 +1,19 @@
+diff --git a/scripts/version b/scripts/version
+index ba59e6b..ee76492 100755
+--- a/scripts/version
++++ b/scripts/version
+@@ -1,13 +1,3 @@
+ #!/bin/sh
+ set -eu
+-
+-cd "$(dirname "$0")/../"
+-test -d .git || exit 1
+-
+-if git describe --tags --match 'jq-*' >/dev/null 2>&1; then
+-  git describe --tags --match 'jq-*' --dirty | sed 's/^jq-//'
+-else
+-  branch=$(git rev-parse --abbrev-ref HEAD)
+-  commit=$(git describe --always --dirty)
+-  echo "${branch}-${commit}"
+-fi
++echo "1.7.1"

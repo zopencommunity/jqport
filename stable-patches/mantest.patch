@@ -1,0 +1,10 @@
+diff --git a/tests/mantest b/tests/mantest
+index e9b56e0..b1e6fca 100755
+--- a/tests/mantest
++++ b/tests/mantest
+@@ -3,4 +3,4 @@
+ . "${0%/*}/setup" "$@"
+ 
+ # We set PAGER because there's a mantest for `env` that uses it.
+-env PAGER=less $VALGRIND $Q $JQ -L "$mods" --run-tests $JQBASEDIR/tests/man.test
++PAGER=less $VALGRIND $Q $JQ -L "$mods" --run-tests $JQBASEDIR/tests/man.test
