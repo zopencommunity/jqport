@@ -3,8 +3,26 @@ JQ_VERSION="1.7.1"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-${JQ_VERSION}.tar.gz"
-export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils" 
+export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils"
+export ZOPEN_DEV_URL="https://github.com/jqlang/jq.git"
+export ZOPEN_DEV_DEPS="autoconf automake m4 libtool make curl gzip tar zoslib coreutils oniguruma which less bash util diffutils"
 export ZOPEN_COMP=CLANG
+
+zopen_bootstrap_dev() {
+   autoreconf -i
+}
+
+zopen_make_dev() {
+   make -j8
+}
+
+zopen_post_buildenv()
+{
+  if [ "${ZOPEN_BUILD_LINE}x" = "DEVx" ]; then
+    export ZOPEN_BOOTSTRAP="zopen_bootstrap_dev"
+    export ZOPEN_MAKE="zopen_make_dev"
+  fi
+}
 
 zopen_check_results()
 {

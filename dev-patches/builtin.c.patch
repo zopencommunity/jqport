@@ -1,0 +1,10 @@
+diff --git a/src/builtin.c b/src/builtin.c
+index ad14da2..368b294 100644
+--- a/src/builtin.c
++++ b/src/builtin.c
+@@ -1,4 +1,4 @@
+-#ifndef __sun__
++#if !defined(__sun__) && !defined(__MVS__)
+ # define _XOPEN_SOURCE
+ # define _XOPEN_SOURCE_EXTENDED 1
+ #else

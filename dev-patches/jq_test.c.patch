@@ -1,0 +1,18 @@
+diff --git a/src/jq_test.c b/src/jq_test.c
+index dd6920a..07343b8 100644
+--- a/src/jq_test.c
++++ b/src/jq_test.c
+@@ -382,8 +382,12 @@ static void run_jq_pthread_tests() {
+ 
+     // wait for all threads
+     for(a = 0; a < NUMBER_OF_THREADS; ++a) {
++#ifdef __MVS__
++        if (threads[a].__ != 0) {
++#else
+         if (threads[a] != 0) {
+-            pthread_join(threads[a], NULL);
++#endif
++    	   pthread_join(threads[a], NULL);
+         }
+     }
+ 
