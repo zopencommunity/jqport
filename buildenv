@@ -1,21 +1,23 @@
 # bump: jq-version /JQ_VERSION="(.*)"/ https://github.com/jqlang/jq.git|semver:*
 JQ_VERSION="1.7.1"
 
-export ZOPEN_BUILD_LINE="STABLE"
+export ZOPEN_BUILD_LINE="DEV"
 export ZOPEN_STABLE_URL="https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-${JQ_VERSION}.tar.gz"
 export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils"
 export ZOPEN_DEV_URL="https://github.com/jqlang/jq.git"
 export ZOPEN_DEV_DEPS="autoconf automake m4 libtool make curl gzip tar zoslib coreutils oniguruma which less bash util diffutils"
 export ZOPEN_COMP=CLANG
-
-zopen_post_buildenv()
-{
-  if [ "${ZOPEN_BUILD_LINE}x" = "DEVx" ]; then
-    export ZOPEN_BOOTSTRAP="autoreconf"
-    export ZOPEN_BOOTSTRAP_OPTS="-i"
-    export ZOPEN_MAKE_MINIMAL="y"
-  fi
-}
+export ZOPEN_BOOTSTRAP="autoreconf"
+export ZOPEN_BOOTSTRAP_OPTS="-i"
+export ZOPEN_CONFIGURE="./configure"
+export ZOPEN_MAKE="make"
+export ZOPEN_CHECK="make"
+export ZOPEN_CHECK_OPTS="check"
+export ZOPEN_INSTALL="make"
+export ZOPEN_INSTALL_OPTS="install"
+export ZOPEN_CLEAN="make"
+export ZOPEN_CLEAN_OPTS="clean"
+export ZOPEN_MAKE_MINIMAL="y"
 
 zopen_check_results()
 {
