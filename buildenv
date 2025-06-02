@@ -1,10 +1,13 @@
 # bump: jq-version /JQ_VERSION="(.*)"/ https://github.com/jqlang/jq.git|semver:*
-JQ_VERSION="1.7.1"
+JQ_VERSION="1.8.0"
 
 export ZOPEN_BUILD_LINE="STABLE"
-export ZOPEN_STABLE_URL="https://github.com/stedolan/jq/releases/download/jq-${JQ_VERSION}/jq-${JQ_VERSION}.tar.gz"
-export ZOPEN_STABLE_DEPS="make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils zusage" 
+export ZOPEN_STABLE_URL="https://github.com/jqlang/jq.git"
+export ZOPEN_STABLE_DEPS="autoconf automake m4 libtool make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils zusage openssl zlib"
+export ZOPEN_STABLE_TAG="jq-${JQ_VERSION}"
 export ZOPEN_COMP=CLANG
+export ZOPEN_BOOTSTRAP="autoreconf"
+export ZOPEN_BOOTSTRAP_OPTS="-i"
 export ZOPEN_EXTRA_CFLAGS="-mzos-target=zosv2r5 -march=z13"
 export ZOPEN_SYSTEM_PREREQS="zos25"
 
@@ -28,7 +31,7 @@ ZZ
 
 zopen_get_version()
 {
-    ./scripts/version
+	scripts/version
 }
 
 zopen_init()
