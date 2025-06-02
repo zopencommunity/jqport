@@ -1,0 +1,11 @@
+diff --git a/tests/shtest b/tests/shtest
+index 88278a8..250d842 100755
+--- a/tests/shtest
++++ b/tests/shtest
+@@ -1,5 +1,4 @@
+-#!/bin/sh -x
+-
++/bin/env $SHELL
+ . "${0%/*}/setup" "$@"
+ 
+ msys=false

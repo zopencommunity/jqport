@@ -1,19 +1,16 @@
 diff --git a/scripts/version b/scripts/version
-index f24a18d..9901d95 100755
+index f24a18d..0b880e0 100755
 --- a/scripts/version
 +++ b/scripts/version
-@@ -1,13 +1,3 @@
- #!/bin/sh
- set -eu
--
--cd "$(dirname "$0")/../"
--test -e .git || exit 1
--
--if git describe --tags --match 'jq-*' >/dev/null 2>&1; then
+@@ -5,9 +5,9 @@ cd "$(dirname "$0")/../"
+ test -e .git || exit 1
+ 
+ if git describe --tags --match 'jq-*' >/dev/null 2>&1; then
 -  git describe --tags --match 'jq-*' --dirty | sed 's/^jq-//'
--else
--  branch=$(git rev-parse --abbrev-ref HEAD)
++  git describe --tags --match 'jq-*' | sed 's/^jq-//'
+ else
+   branch=$(git rev-parse --abbrev-ref HEAD)
 -  commit=$(git describe --always --dirty)
--  echo "${branch}-${commit}"
--fi
-+echo "1.8.0"
++  commit=$(git describe --always)
+   echo "${branch}-${commit}"
+ fi
