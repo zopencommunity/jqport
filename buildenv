@@ -1,5 +1,5 @@
 # bump: jq-version /JQ_VERSION="(.*)"/ https://github.com/jqlang/jq.git|semver:*
-JQ_VERSION="1.8.0"
+JQ_VERSION="1.8.1"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://github.com/jqlang/jq.git"
