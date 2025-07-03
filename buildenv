@@ -3,7 +3,7 @@ JQ_VERSION="1.8.1"
 
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_STABLE_URL="https://github.com/jqlang/jq.git"
-export ZOPEN_STABLE_DEPS="autoconf automake m4 libtool make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils zusage openssl zlib"
+export ZOPEN_STABLE_DEPS="autoconf automake m4 libtool make curl gzip tar zoslib coreutils oniguruma which less bash util-linux diffutils zusage openssl zlib perl"
 export ZOPEN_STABLE_TAG="jq-${JQ_VERSION}"
 export ZOPEN_COMP=CLANG
 export ZOPEN_BOOTSTRAP="autoreconf"
