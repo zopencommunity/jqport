@@ -1,0 +1,13 @@
+diff --git a/src/builtin.c b/src/builtin.c
+index 52fe77c..2667c18 100644
+--- a/src/builtin.c
++++ b/src/builtin.c
+@@ -1222,7 +1222,7 @@ static jv f_error(jq_state *jq, jv input) {
+ }
+ 
+ // FIXME Should autoconf check for this!
+-#ifndef WIN32
++#if !defined(WIN32) && !defined(__MVS__)
+ extern char **environ;
+ #endif
+ 

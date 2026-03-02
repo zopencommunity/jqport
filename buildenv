@@ -9,6 +9,7 @@ export ZOPEN_COMP=CLANG
 export ZOPEN_BOOTSTRAP="autoreconf"
 export ZOPEN_BOOTSTRAP_OPTS="-i"
 export ZOPEN_EXTRA_CFLAGS="-mzos-target=zosv2r5 -march=z13"
+export ZOPEN_EXTRA_CPPFLAGS="-D_AIX_COMPATIBILITY"
 export ZOPEN_SYSTEM_PREREQS="zos25"
 
 zopen_check_results()
@@ -31,11 +32,11 @@ ZZ
 
 zopen_get_version()
 {
-	scripts/version
+  scripts/version
 }
 
 zopen_init()
 {
-	unset TZ
-	SHELL=bash
+  unset TZ
+  SHELL=bash
 }
